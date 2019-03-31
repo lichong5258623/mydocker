@@ -1,0 +1,35 @@
+version: '3'
+
+services:
+
+  wordpress:
+    image: wordpress
+    restart: always
+    ports:
+      - 18080:80
+    environment:
+      WORDPRESS_DB_HOST: mysql
+      WORDPRESS_DB_USER: root
+      WORDPRESS_DB_PASSWORD: 123456
+      WORDPRESS_DB_NAME: wordpressdb
+    networks:
+      - my-bridge
+
+  mysql:
+    image: mysql:5.7
+    restart: always
+    environment:
+      MYSQL_USER: wordpress
+      MYSQL_PASSWORD: 123456
+      MYSQL_DATABASE: wordpressdb
+    volumes:
+      - mysql-data:/var/lib/mysql
+    networks:
+      - my-bridge
+
+volumes:
+  mysql-data:
+
+networks:
+  my-bridge:
+    driver: bridge

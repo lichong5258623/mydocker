@@ -1,0 +1,7 @@
+ZBench-CN.sh 		测速脚本
+
+ss-go.sh 			逗比的ss服务端安装脚本go语言版
+
+shadowsocks-all.sh           	ss服务端全版本安装脚本
+
+tcp.sh                               	bbr加速安装脚本
