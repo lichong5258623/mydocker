@@ -1,0 +1,11 @@
+version: '3.1'
+
+services:
+  registry:
+    image: registry
+    restart: always
+    container_name: docker_registry
+    ports:
+      - 5000:5000
+    volumes:
+      - /usr/local/docker/registry/data:/var/lib/registry
